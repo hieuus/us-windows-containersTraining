@@ -1,0 +1,186 @@
+﻿<Window x:Class="ContainersTraining.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ContainersTraining"
+        mc:Ignorable="d"
+        Title="SettingsWindow" Height="750" Width="1200"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        MinWidth="605"
+        >
+
+
+        <DockPanel>
+            <!--user and information-->
+            <Label Background="#f2f2f2" MinHeight="180" DockPanel.Dock="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="40,20,40,40">
+                    <!--user-->
+                    <StackPanel MinWidth="500" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image Source="./images/user.png" Height="100" Width="100"></Image>
+                        <StackPanel Margin="20,10,10,10">
+                            <TextBlock Name="user" FontWeight="Bold" FontSize="24">Hieu Nguyen</TextBlock>
+                            <TextBlock Name="acount" FontSize="14" FontWeight="Medium" Foreground="#a8a4a4" Margin="0,3,0,2">Local Account</TextBlock>
+                            <TextBlock Name="login" Foreground="#0078d7" Cursor="Hand" FontSize="14" FontWeight="Medium">Sign In</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!--information-->
+                    <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                        <TextBlock Name="header" FontWeight="Bold" FontSize="20">Get even more out of Windows</TextBlock>
+                        <TextBlock Name="desc" TextWrapping="Wrap" FontSize="14" Margin="0,10,0,10" Foreground="#a8a4a4">With a few quick selections, you'll be  on your way to enjoying the full Microsoft experience.</TextBlock>
+                        <!--button-->
+                        <StackPanel Orientation="Horizontal">
+                            <Button Padding="40 5" Width="170" Content="Let's go!" FontSize="14" Margin="0,0,5,0"
+                                    Background="#c2c2c2" BorderBrush="{x:Null}" FontWeight="Medium"
+                                    Cursor="Hand"></Button>
+
+                            <Button Padding="40 5" Width="170" Content="Skip for now" FontSize="14" Margin="5,0,0,0"
+                                    Background="Transparent" BorderBrush="{x:Null}" Foreground="#0078d7" FontWeight="Medium"
+                                    Cursor="Hand"></Button>
+                        </StackPanel>
+                    </StackPanel>
+                </WrapPanel>
+            </Label>
+
+            <!--searching-->
+        <Label Height="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,10">
+            <Grid>
+                <TextBox BorderThickness="2"  Width="500" Padding="5" FontSize="18" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="SearchTermTextBox" Margin="5"/>
+                <TextBlock IsHitTestVisible="False" FontSize="16" Text="Find a setting" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="14,0,0,0" Foreground="DarkGray">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=SearchTermTextBox}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <TextBlock IsHitTestVisible="False" FontSize="16" Text="🔎" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10,0,10,0" Foreground="DarkGray">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=SearchTermTextBox}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+        </Label>
+
+
+
+        <!--main setting-->
+            <Label VerticalContentAlignment="Top">
+            <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                <WrapPanel Margin="66,0,0,0" >
+                    <StackPanel MinWidth="350" MinHeight="100" Orientation="Horizontal" Margin="0,0,0,10"  >
+                        <Image Source="/images/setting1.png" Height="50" Width='50' Margin="0,0,10,0" Cursor="Hand"></Image>
+                        <StackPanel VerticalAlignment='Center' Orientation="Vertical" Cursor="Hand">
+                            <TextBlock FontSize="16" FontWeight="Medium" Margin="0,0,0,5">System</TextBlock>
+                            <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="#a8a4a4">Display, sound, notification, power</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel MinWidth="350" MinHeight="100" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Image Source="/images/setting2.png" Height="50" Width='50' Margin="0,0,10,0" Cursor="Hand"></Image>
+                        <StackPanel VerticalAlignment='Center' Orientation="Vertical" Cursor="Hand">
+                            <TextBlock FontSize="16" FontWeight="Medium" Margin="0,0,0,5">Devices</TextBlock>
+                            <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="#a8a4a4">Bluetooth, printers, mouse</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel MinWidth="350" MinHeight="100" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Image Source="/images/setting3.png" Height="50" Width='50' Margin="0,0,10,0" Cursor="Hand"></Image>
+                        <StackPanel VerticalAlignment='Center' Orientation="Vertical" Cursor="Hand">
+                            <TextBlock FontSize="16" FontWeight="Medium" Margin="0,0,0,5">Phone</TextBlock>
+                            <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="#a8a4a4">Link your Android, iphone</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel MinWidth="350" MinHeight="100" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Image Source="/images/setting4.png" Height="50" Width='50' Margin="0,0,10,0" Cursor="Hand"></Image>
+                        <StackPanel VerticalAlignment='Center' Orientation="Vertical" Cursor="Hand">
+                            <TextBlock FontSize="16" FontWeight="Medium" Margin="0,0,0,5">Network and Internet</TextBlock>
+                            <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="#a8a4a4">Wi-Fi, airplane mode, VPN</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel MinWidth="350" MinHeight="100" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Image Source="/images/setting5.png" Height="50" Width='50' Margin="0,0,10,0" Cursor="Hand"></Image>
+                        <StackPanel VerticalAlignment='Center' Orientation="Vertical" Cursor="Hand">
+                            <TextBlock FontSize="16" FontWeight="Medium" Margin="0,0,0,5">Personalization</TextBlock>
+                            <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="#a8a4a4">Background, lock screen, colors</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel MinWidth="350" MinHeight="100" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Image Source="/images/setting6.png" Height="50" Width='50' Margin="0,0,10,0" Cursor="Hand"></Image>
+                        <StackPanel VerticalAlignment='Center' Orientation="Vertical" Cursor="Hand">
+                            <TextBlock FontSize="16" FontWeight="Medium" Margin="0,0,0,5">Apps</TextBlock>
+                            <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="#a8a4a4">Uninstall, defaults, optional features</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel MinWidth="350" MinHeight="100" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Image Source="/images/setting7.png" Height="50" Width='50' Margin="0,0,10,0" Cursor="Hand"></Image>
+                        <StackPanel VerticalAlignment='Center' Orientation="Vertical" Cursor="Hand">
+                            <TextBlock FontSize="16" FontWeight="Medium" Margin="0,0,0,5">Accounts</TextBlock>
+                            <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="#a8a4a4">Your accounts, email, sync, work family</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel MinWidth="350" MinHeight="100" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Image Source="/images/setting8.png" Height="50" Width='50' Margin="0,0,10,0" Cursor="Hand"></Image>
+                        <StackPanel VerticalAlignment='Center' Orientation="Vertical" Cursor="Hand">
+                            <TextBlock FontSize="16" FontWeight="Medium" Margin="0,0,0,5">Time and Language</TextBlock>
+                            <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="#a8a4a4">Speech, region, date</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel MinWidth="350" MinHeight="100" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Image Source="/images/setting9.png" Height="50" Width='50' Margin="0,0,10,0" Cursor="Hand"></Image>
+                        <StackPanel VerticalAlignment='Center' Orientation="Vertical" Cursor="Hand">
+                            <TextBlock FontSize="16" FontWeight="Medium" Margin="0,0,0,5">Gaming</TextBlock>
+                            <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="#a8a4a4">Xbox Game Bar, captures, Game Mode</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel MinWidth="350" MinHeight="100" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Image Source="/images/setting10.png" Height="50" Width='50' Margin="0,0,10,0" Cursor="Hand"></Image>
+                        <StackPanel VerticalAlignment='Center' Orientation="Vertical" Cursor="Hand">
+                            <TextBlock FontSize="16" FontWeight="Medium" Margin="0,0,0,5">Ease of Access</TextBlock>
+                            <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="#a8a4a4">Narrator, magnifier, high contrast</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel MinWidth="350" MinHeight="100" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Image Source="/images/setting10.png" Height="50" Width='50' Margin="0,0,10,0" Cursor="Hand"></Image>
+                        <StackPanel VerticalAlignment='Center' Orientation="Vertical" Cursor="Hand">
+                            <TextBlock FontSize="16" FontWeight="Medium" Margin="0,0,0,5">Search</TextBlock>
+                            <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="#a8a4a4">Find my files, permissions</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel MinWidth="350" MinHeight="100" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Image Source="/images/setting12.png" Height="50" Width='50' Margin="0,0,10,0" Cursor="Hand"></Image>
+                        <StackPanel VerticalAlignment='Center' Orientation="Vertical" Cursor="Hand">
+                            <TextBlock FontSize="16" FontWeight="Medium" Margin="0,0,0,5">Privacy</TextBlock>
+                            <TextBlock FontSize="15" TextWrapping="Wrap" Foreground="#a8a4a4">Location, camera, microphone</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </WrapPanel>
+            </ScrollViewer>
+            </Label>
+            
+        </DockPanel>
+  
+</Window>
